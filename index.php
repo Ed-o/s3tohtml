@@ -55,17 +55,28 @@ try {
 		if ( $url == "/" ) { $url = ""; }
 		# Pull the list of directories and files from the location in $url
 		$result = $s3Client->ListObjects(['Bucket' => "$bucket", 'Delimiter'=>'/', 'Prefix' => "$url"]);
-		
+		# Add the HTML for the page and table layout
+		echo "<html><head><title>S3toHTML</title><link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"></head><body>";
+		echo "<h3>S3toHTML browser</h3><br /><br />";
+		echo "<table id=\"cols\">";		
 		# Start be displaying the directory names and make them into links so we can browse round
 		foreach ($result["CommonPrefixes"] as $res) {
-			echo "<a href=\"/" . $res["Prefix"] . "\">" . $res["Prefix"] . "</a><br />";
+			echo "<tr><td><a href=\"/" . $res["Prefix"] . "\"><img src=\"/images/folder.png\"></a></td>";
+			echo "<td><a href=\"/" . $res["Prefix"] . "\">" . $res["Prefix"] . "</a></td></tr>";
 		}
 		# and then if there are files inside this directory then show them as links too 
 		if (isset ($result[@Contents])) {
 			foreach ($result["Contents"] as $res) {
-				echo "<a href=\"/" . $res["Key"] . "\">" . $res["Key"] . "</a><br />";
+				if (substr($res["Key"], -5) == ".html") { 
+					$imageicon="web.png";
+				} else {
+					$imageicon="file.png";
+				}
+				echo "<tr><td><a href=\"/" . $res["Key"] . "\"><img src=\"/images/$imageicon\"></a></td>";
+				echo "<td><a href=\"/" . $res["Key"] . "\">" . $res["Key"] . "</a></td></tr>";
 			}
 		}
+		echo "</table><br /></body></html>";
 	}
 # Catch errors if they come up
 } catch (Aws\S3\Exception\S3Exception $e) {

@@ -19,9 +19,12 @@ You need the AWS PHP SDK V3
 This is a first draft.  A project I wrote to fix something for myself.  
 If you want new features, feel free to form it and add them (just remember to publish your work for others to use and enjoy)
   
-  
-  
-  
+## And thanks go to :
+
+The CSS in the Tables comes direct from : https://www.w3schools.com/css/css_table.asp
+The Icons in the biorwser come from the MDI icon set : https://materialdesignicons.com/  
+The code to get the S3 SDK stuff - mostly snippets from the AWS docs online
+ 
   
 
 
