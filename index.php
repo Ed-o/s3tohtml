@@ -58,7 +58,8 @@ try {
 		# Add the HTML for the page and table layout
 		echo "<html><head><title>S3toHTML</title><link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"></head><body>";
 		echo "<h3>S3toHTML browser</h3><br /><br />";
-		echo "<table id=\"cols\">";		
+		echo "<table id=\"cols\">";
+		echo "<tr><th colspan=\"2\"><center>$bucket</center></th></tr>";
 		# Start be displaying the directory names and make them into links so we can browse round
 		foreach ($result["CommonPrefixes"] as $res) {
 			echo "<tr><td><a href=\"/" . $res["Prefix"] . "\"><img src=\"/images/folder.png\"></a></td>";
