@@ -15,9 +15,16 @@ You need a web server that can redirect to php.  (I use apache httpd and the .ht
 You need the AWS PHP SDK V3  
  * Note - the AWS docs tell you the best way to install it is using compose. If you do this on an Amazon-Linux repo server you will get SDK V2.x and that does not work. (I use the zip download method)  
 
+## ...and how does it talk to S3 ?
+The system is currently designed to use an IAM role.  This is a EC2 role with permissions to read and list objects in a single S3 bucket.  It will be fairly easy to add keys or envirment variables on to allow access.  I will get round to that in the near future (maybe).
+
 ## It doesn't work / do what I want / make coffee
 This is a first draft.  A project I wrote to fix something for myself.  
 If you want new features, feel free to form it and add them (just remember to publish your work for others to use and enjoy)
+
+## Security
+Is this secure ?  No.  
+It was designed to go on an internal web server on an internal IP address with no external connection.  The data helpd in the S3 is not top secret, or PII, or in anyway dangerous.  If you want security on this system - you add it on.
   
 ## And thanks go to :
 
