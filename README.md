@@ -28,8 +28,8 @@ It was designed to go on an internal web server on an internal IP address with n
   
 ## And thanks go to :
 
-The CSS in the Tables comes direct from : https://www.w3schools.com/css/css_table.asp
-The Icons in the biorwser come from the MDI icon set : https://materialdesignicons.com/  
+The CSS in the Tables comes direct from : https://www.w3schools.com/css/css_table.asp. 
+The Icons in the browser come from the MDI icon set : https://materialdesignicons.com/  
 The code to get the S3 SDK stuff - mostly snippets from the AWS docs online
  
   
